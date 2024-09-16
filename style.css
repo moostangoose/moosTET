@@ -1,0 +1,40 @@
+ 
+/* Base styles for text color and background */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4; /* Light background color for body */
+    color: #333; /* Dark text color for body */
+}
+
+iframe {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    background-color: #fff; /* Ensure iframe background is white */
+}
+
+/* Styles for the spreadsheet view */
+.spreadsheet-view {
+    background-color: #fff; /* White background for the spreadsheet view */
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+/* Targeting elements with a black background and changing text color */
+iframe {
+    border: 1px solid #ccc;
+}
+
+iframe, iframe * {
+    background-color: #000;
+    color: #fff; /* Change text color to white if background is black */
+}
+
+iframe * {
+    color: #fff; /* Ensure all text in the iframe is white if the background is black */
+}
+
+iframe *:not([style*="background-color: black"]) {
+    color: initial; /* Reset to original color if the background is not black */
+}
