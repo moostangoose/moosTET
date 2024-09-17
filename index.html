@@ -2,21 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, initial-scale=1.0">
     <title>Display TETs Image</title>
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.3.0/dist/photoswipe.css">
+    <script src="https://unpkg.com/photoswipe@5.3.0/dist/photoswipe.umd.min.js"></script>
     <style>
-        img {
-            max-width: 100%;   /* Fit the image to the screen width initially */
-            height: auto;      /* Maintain aspect ratio */
-        }
         body {
             margin: 0;
             padding: 0;
-            overflow-x: auto;  /* Allow horizontal scrolling if necessary */
+        }
+        .pswp-gallery img {
+            display: block;
+            width: 100%; /* Remove width constraints */
+            height: auto;
+            max-width: none; /* No maximum width */
         }
     </style>
 </head>
 <body>
-    <img src="TETs.jpg" alt="TETs Image">
+
+    <div class="pswp-gallery" id="gallery">
+        <a href="TETs.jpg" data-pswp-width="1920" data-pswp-height="1080" target="_blank">
+            <img src="TETs.jpg" alt="TETs Image">
+        </a>
+    </div>
+
+    <script>
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#gallery',
+            children: 'a',
+            pswpModule: () => import('https://unpkg.com/photoswipe@5.3.0/dist/photoswipe.umd.min.js')
+        });
+        lightbox.init();
+    </script>
+
 </body>
 </html>
